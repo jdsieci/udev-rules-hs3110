@@ -1,0 +1,9 @@
+ACTION!="add|change|move", GOTO="hs3110_end"
+
+#Load module
+SUBSYSTEM=="usb", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="521d" RUN+="/sbin/modprobe option"
+
+#Add new id
+SUBSYSTEM=="drivers", ENV{DEVPATH}=="/bus/usb-serial/drivers/option1" ATTR{new_id}="03f0 521d"
+
+LABEL=="hs3110_end"
