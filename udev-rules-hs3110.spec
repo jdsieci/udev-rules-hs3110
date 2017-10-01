@@ -1,4 +1,4 @@
-Name:		udev-rule-hs3110
+Name:		udev-rules-hs3110
 Version:	1.0
 Release:	1%{?dist}
 Summary:	Udev rules adding support for HP hs3110+ HSPA broadband modem
