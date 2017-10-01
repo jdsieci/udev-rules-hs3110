@@ -1,6 +1,6 @@
 Name:		udev-rules-hs3110
 Version:	1.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Udev rules adding support for HP hs3110+ HSPA broadband modem
 
 License:	GPL
@@ -17,6 +17,7 @@ Requires:	systemd-udev
 Requires:	systemd
 %endif
 
+%{?systemd_requires}
 BuildRequires:	systemd
 
 %description
@@ -35,6 +36,15 @@ install -pm 644 70-hs3110.rules %{buildroot}%{_udevrulesdir}
 %defattr(-,root,root,-)
 %{_udevrulesdir}/70-hs3110.rules
 
+%post
+%udev_rules_update
+
+%postun
+%udev_rules_update
+
 %changelog
+* Sun Oct 01 2017 Jerzy Drozdz <rpmbuilder@jdsieci.pl> - 1.0-2
+- added %post and %postun scriptlets
+
 * Sat Sep 30 2017 Jerzy Drozdz <rpmbuilder@jdsieci.pl> - 1.0-1
 - initial build
