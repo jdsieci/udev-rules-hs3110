@@ -9,7 +9,13 @@ Source0:	https://github.com/jdsieci/%{name}/archive/v%{version}/%{name}-%{versio
 
 BuildArch:	noarch
 
+%if 0%{?fedora}
 Requires:	systemd-udev
+%endif
+
+%if 0%{?rhel}
+Requires:	systemd
+%endif
 
 BuildRequires:	systemd
 
