@@ -1,6 +1,6 @@
 Name:		udev-rules-hs3110
-Version:	1.0
-Release:	2%{?dist}
+Version:	1.1
+Release:	1%{?dist}
 Summary:	Udev rules adding support for HP hs3110+ HSPA broadband modem
 
 License:	GPL
@@ -31,6 +31,7 @@ Udev rules adding support for HP hs3110+ HSPA broadband modem
 %install
 install -d 755 %{buildroot}%{_udevrulesdir}
 install -pm 644 70-hs3110.rules %{buildroot}%{_udevrulesdir}
+install -pm 644 78-mm-whitelist-hs3110.rules %{buildroot}%{_udevrulesdir}
 
 %files
 %defattr(-,root,root,-)
@@ -43,6 +44,9 @@ install -pm 644 70-hs3110.rules %{buildroot}%{_udevrulesdir}
 %udev_rules_update
 
 %changelog
+* Sun Nov 07 2021 Jerzy Drozdz <rpmbuilder@jdsieci.pl> - 1.1-1
+- added forcing whitelist in ModemManager
+
 * Sun Oct 01 2017 Jerzy Drozdz <rpmbuilder@jdsieci.pl> - 1.0-2
 - added %post and %postun scriptlets
 
