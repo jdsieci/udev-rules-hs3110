@@ -36,6 +36,7 @@ install -pm 644 78-mm-whitelist-hs3110.rules %{buildroot}%{_udevrulesdir}
 %files
 %defattr(-,root,root,-)
 %{_udevrulesdir}/70-hs3110.rules
+%{_udevrulesdir}/78-mm-whitelist-hs3110.rules
 
 %post
 %udev_rules_update
